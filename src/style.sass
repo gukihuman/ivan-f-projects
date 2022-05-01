@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poiret+One&family=Roboto&display=swap')
+
+$dark-blue: rgb(34, 51, 104, 0.9)
+$dark-blue-lighter: adjust-color($dark-blue, $lightness: 30%)
+$desaturated-blue: #afc4e4
+$bright-blue: #3065f8
+$light-gray: #e4ecf1
+$light-gray-darker: adjust-color($light-gray, $lightness: -1.3%)
+
+@mixin desktop
+    @media screen and (min-width: 768px)
+        @content
+
+@mixin shadow
+    box-shadow: 0 0 20px rgb(0, 0, 0, 0.1)
+
+@mixin hover-background($color)
+    &::before
+        content: ''
+        left: 43%
+        position: absolute
+        background: $color
+        width: 50px
+        height: 50px
+        animation: title-background 500ms forwards
+        z-index: -1
+
+@keyframes title-background
+    0%
+        transform: scale(100%)
+    100%
+        transform: scale(650%)
+
+*
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+
+body
+    font-family: 'Open Sans', sans-serif
+    text-align: center
+    height: 100vh
+    background: repeating-linear-gradient(45deg, $light-gray 0px, $light-gray 10px, $light-gray-darker 10px, $light-gray-darker 40px)
+
+h1, h2
+    font-family: 'Poiret One', cursive
+    color: $dark-blue
+
+h1
+    font-size: 32px
+    background: linear-gradient(90deg, #ffffff00 0%, #fff 50%, #ffffff00 100%)
+    padding: 0.1em
+
+    @include desktop
+        font-size: 38px
+
+h2
+    font-size: 24px
+    background: linear-gradient(90deg, #ffffff00 0%, #ffffffae 50%, #ffffff00 100%)
+    padding-bottom: 0.3em
+
+    @include desktop
+        font-size: 30px
+
+a
+    text-decoration: none
+    color: $dark-blue
+
+.container
+    max-width: 1440px
+    margin: auto
+
+header
+    display: flex
+    flex-direction: column
+    padding: 20px
+
+    @include desktop
+        padding-top: 40px
+
+ul
+    display: inline-flex
+    justify-content: center
+    align-items: center
+    flex-wrap: wrap
+    list-style-type: none
+
+    li
+        display: flex
+        justify-content: space-between
+        flex-direction: column
+        background-color: white
+        width: 300px
+        height: 220px
+        @include shadow
+        border-radius: 10px
+        overflow: hidden
+        margin: 25px
+
+        @include desktop
+            transform: scale(110%)
+            margin: 40px
+
+        .live-link
+            width: 100%
+            height: 90%
+            display: inline-flex
+            flex-direction: column
+            justify-content: center
+            position: relative
+
+            img
+                transition: 500ms
+            
+            h3
+                font-family: 'Roboto', sans-serif
+                display: flex
+                align-items: center
+                justify-content: center
+                position: absolute
+                bottom: 0
+                width: 300px
+                height: 35px
+                z-index: 3
+                font-weight: 400
+                transition: 500ms
+                padding-bottom: 3px
+
+            &:hover
+
+                img
+                    transform: scale(110%)
+                h3
+                    overflow: hidden
+                    @include hover-background(adjust-color($dark-blue-lighter, $lightness: 35%))
+                    
+
+        .code-link
+            bottom: 0
+            display: flex
+            gap: 7px
+            justify-content: center
+            background: $desaturated-blue
+            align-items: center
+            height: 35px
+            transition: 300ms
+            z-index: 5
+            overflow: hidden
+            position: relative
+
+            &:hover
+                background-color: $dark-blue-lighter
+                overflow: hidden
+                color: white
