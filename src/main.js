@@ -8,8 +8,23 @@ const projects = [
     },
     {
         title: 'slick-slider',
-        liveLink: '#',
-        codeLink: '#',
+        liveLink: 'https://ivan-f-sokolov.github.io/slick-slider',
+        codeLink: 'https://github.com/ivan-f-sokolov/slick-slider',
+    },
+    {
+        title: 'stopwatch',
+        liveLink: 'https://ivan-f-sokolov.github.io/stopwatch',
+        codeLink: 'https://github.com/ivan-f-sokolov/stopwatch',
+    },
+    {
+        title: 'link-tree',
+        liveLink: 'https://ivan-f-sokolov.github.io/link-tree',
+        codeLink: 'https://github.com/ivan-f-sokolov/link-tree',
+    },
+    {
+        title: 'documentation',
+        liveLink: 'https://ivan-f-sokolov.github.io/documentation',
+        codeLink: 'https://github.com/ivan-f-sokolov/documentation',
     },
 ];
 
